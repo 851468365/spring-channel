@@ -1,1 +1,1 @@
-# spring+springMVC+Mybatis项目
+# spring+springMVC+Mybatis基础项目
