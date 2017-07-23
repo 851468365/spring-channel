@@ -47,6 +47,37 @@ public class StudentController {
 		}
 		return map;
 	}
+	/**
+	 * 测试Mybatis，入参hashMap，出参HashMap
+	 */
+	@ResponseBody
+	@RequestMapping(value="getStudentListMap")
+	public Map getStudentListMap(Student student, HttpServletRequest request, HttpServletResponse response) throws IOException, CommonException{
+		Map map = new HashMap();
+		try {
+			//分页参数
+			Page<Object> page = PageHelper.startPage(1, 3);
+			//参数信息
+			HashMap hashMap = new HashMap();
+			hashMap.put("sno", "001");
+			//查询结果
+			List<Map> selectStudentScore = studentSV.selectStudentScore(hashMap);
+			//遍历结果集
+			for (Map m : selectStudentScore) {
+				System.out.println(m);
+			}
+			
+			map.put("student", selectStudentScore);
+			map.put("result", "success");
+			map.put("promptMsg", "查询成功!");
+		} catch (Exception e) {
+			map.put("result", "failed");
+			map.put("promptMsg", "查询失败!");
+			map.put("errorMsg", e.getMessage());
+			logger.error("查询学生信息失败。", e);
+		}
+		return map;
+	}
 	
 	
 	@ResponseBody

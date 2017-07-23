@@ -22,6 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<h1>测试实体类：student</h1><br/>
   	<a href="student/getStudentsByPage.action?id=003&pageNum=1&pageSize=2">getStudentsByPage</a><br/><br/>
   	<a href="student/getStudentById.action?id=003">getStudentById</a><br/><br/>
+	<a href="student/getStudentListMap.action?id=003">getStudentListMap</a><br/><br/>
   	
   	<h1>测试实体类：teacher</h1><br/>
   	<a href="teacher/getTeachersByPage.action?id=003&pageNum=1&pageSize=3">getTeachersByPage</a><br/><br/>
